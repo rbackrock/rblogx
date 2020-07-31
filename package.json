@@ -1,0 +1,30 @@
+{
+  "name": "rblogx",
+  "version": "1.0.0",
+  "description": "rblogx",
+  "main": "app.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbackrock/rblogx.git"
+  },
+  "keywords": [
+    "Static blog",
+    "Next.js"
+  ],
+  "author": "yhuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbackrock/rblogx/issues"
+  },
+  "homepage": "https://github.com/rbackrock/rblogx#readme",
+  "dependencies": {
+    "next": "^9.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
