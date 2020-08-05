@@ -1,9 +1,9 @@
 import { getAllPosts } from '../lib/api'
 
-const Index = ({ allPosts }) => (
+const Index = ({ data }) => (
   <>
     <h1>Hello</h1>
-    <p>{JSON.stringify(allPosts)}</p>
+    <p>{JSON.stringify(data)}</p>
   </>
 )
 
