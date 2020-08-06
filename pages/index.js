@@ -1,41 +1,33 @@
-import { getAllPosts } from '../lib/api'
+import Layout from '../components/layout'
+import PostsLayout from '../components/posts-layout'
+import { getAllPosts, getAllCategories } from '../lib/api'
 
-const Index = ({ data }) => (
+const Index = ({ allCategories, allPosts }) => (
   <>
-    <h1>Hello</h1>
-    <p>{JSON.stringify(data)}</p>
+    <Layout>  
+      <PostsLayout
+        categories={ allCategories }
+        category={ allCategories && allCategories.length > 0 ? allCategories[0] : null }
+        posts={ allPosts }
+        post={ allPosts.length > 0 ? allPosts[0] : null }
+      ></PostsLayout>
+    </Layout>
   </>
 )
 
 export async function getStaticProps() {
+  const allCategories = getAllCategories()
   const allPosts = getAllPosts([
     'title',
     'date',
-    'slug',
-    'author',
+    'content'
   ])
 
-  const data = {
-    java: [
-      {
-        title: 'java标题1',
-        content: 'java内容1'
-      },
-      {
-        title: 'java标题2',
-        content: 'java内容2'
-      }
-    ],
-    c: [
-      {
-        title: 'c标题1',
-        content: 'c内容1'
-      }
-    ]
-  }
-
   return {
-    props: { data }
+    props: {
+      allCategories,
+      allPosts
+    }
   }
 }
 

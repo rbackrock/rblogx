@@ -106,3 +106,5 @@ dist
 # custom
 *_2020*
 package-lock.json
+.next/
+.history

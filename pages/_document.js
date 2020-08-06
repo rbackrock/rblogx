@@ -4,7 +4,7 @@ export default class BlogDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head></Head>
         <body>
           <Main />
           <NextScript />

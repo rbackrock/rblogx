@@ -1,22 +1,11 @@
-const layout = ({
-  title,
-}) => {
+import BlogLayout from './posts-layout'
+import { Fragment } from 'react'
+
+const layout = ({ children }) => {
   return (
-    <div class="main-container">
-      <div class="category-container">
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-      <div class="posts-container">
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-      <div class="post-container">
-        
-      </div>
-    </div>
+    <>
+      {children}
+    </>
   )
 }
 
