@@ -1,8 +1,8 @@
-import { getAllCategories, getPostsByCategory } from '../../lib/api'
+import { getAllCategories, getPostsByCategory, getPostContentByTitle } from '../../lib/api'
 import Layout from '../../components/layout'
 import PostsLayout from '../../components/posts-layout'
 
-const viewCategory = ({ allCategories, allPosts, category }) => {
+const viewPost = ({ allCategories, category, allPosts, post }) => {
   return (
     <>
       <Layout>  
@@ -10,38 +10,50 @@ const viewCategory = ({ allCategories, allPosts, category }) => {
           categories={ allCategories }
           category={ category }
           posts={ allPosts }
-          post={ allPosts.length > 0 ? allPosts[0] : null }
+          post={ post }
         ></PostsLayout>
       </Layout>
     </>
   )
 }
 
-export default viewCategory
+export default viewPost
 
 export async function getStaticProps({ params }) {
   const allCategories = getAllCategories()
+  const category = params.category
   const allPosts = getPostsByCategory(params.category)
+  const post = getPostContentByTitle(params.post)
 
   return {
     props: {
       allCategories,
+      category,
       allPosts,
-      category: params.category
+      post
     }
   }
 }
 
 export async function getStaticPaths() {
   const allCategories = getAllCategories()
-  return {
-    paths: allCategories.map(category => {
-      return {
+  const paramsList = []
+
+  allCategories.map(category => {
+    const postsByCategory = getPostsByCategory(category)
+
+    postsByCategory.map(post => {
+      paramsList.push({
         params: {
-          'category': category
-        },
-      }
-    }),
+          category: category,
+          post: post.title
+        }
+      })
+    })
+  })
+
+  return {
+    paths: paramsList,
     fallback: false,
   }
 }

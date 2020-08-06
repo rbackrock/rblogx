@@ -5,7 +5,7 @@ import PostContent from './post-content'
 const postsLayout = ({ categories, category, posts, post }) => {
   return (
     <>
-      <Category categories={ categories }></Category>
+      <Category categories={ categories } post={ post }></Category>
       <Posts category={ category } posts={ posts }></Posts>
       <PostContent post={ post }></PostContent>
     </>

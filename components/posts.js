@@ -6,7 +6,7 @@ const posts = ({ category, posts }) => {
       <ul>
         {
           posts.map(post => (
-            <Link key={post.title} as={`/category/${category}/p/${post.title}`} href="/category/[category]/p/[post]">
+            <Link key={post.title} as={`/${category}/${post.title}`} href="/[category]/[post]">
               <li>{post.title}</li>
             </Link>
           ))
