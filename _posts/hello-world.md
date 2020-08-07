@@ -1,7 +1,7 @@
 ---
-title: 'js-title-2'
+title: '技术标题2'
 date: '2020-03-16 05:35:07'
-category: 'js'
+category: '技术'
 ---
 
 ## 技术内容2
