@@ -1,4 +1,4 @@
-import { getAllCategories, getPostsByCategory, getPostContentByTitle } from '../../lib/api'
+import { getAllCategories, getPostsByCategory, getPostContentByTitle } from '../../../../lib/api'
 import Layout from '../../components/layout'
 import PostsLayout from '../../components/posts-layout'
 

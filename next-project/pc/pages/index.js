@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import PostsLayout from '../components/posts-layout'
-import { getAllPosts, getAllCategories, getPostContentForIndex } from '../lib/api'
+import { getAllPosts, getAllCategories, getPostContentForIndex } from '../../../lib/api'
 
 const Index = ({ allCategories, allPostsData, post }) => (
   <>

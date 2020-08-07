@@ -1,6 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 
+import '../style/normalize.css'
+import '../style/katex.css'
+
 export default function MyBlog({ Component, pageProps }) {
   return (
     <>
@@ -11,7 +14,7 @@ export default function MyBlog({ Component, pageProps }) {
           <meta httpEquiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="viewport" content="width=device-width" />
-          <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="viewport" content="viewport-fit=cover" />
       </Head>
       <Component {...pageProps} />

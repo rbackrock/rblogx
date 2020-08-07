@@ -109,3 +109,4 @@ package-lock.json
 .next/
 .history
 out
+.DS_Store
