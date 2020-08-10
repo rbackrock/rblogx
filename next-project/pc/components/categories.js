@@ -21,10 +21,10 @@ function handleCategoriesMouseLeave(scrollContainerRef) {
 
 const categories = ({ categories, post }) => {
   const scrollContainerRef = React.createRef()
-  const scroll = null
+  let scroll = null
 
   useEffect(() => {
-    const scroll = new BScroll(scrollContainerRef.current, {
+    scroll = new BScroll(scrollContainerRef.current, {
       mouseWheel: true,
       scrollbar: {
         fade: false,
