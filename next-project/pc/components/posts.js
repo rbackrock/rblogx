@@ -3,6 +3,23 @@ import Link from 'next/link'
 import BScroll from 'better-scroll'
 import moment from 'moment';
 
+function toggleScrollBar(scrollContainerRef, toggle, isTransition=true) {
+  if (scrollContainerRef.current) {
+    scrollContainerRef.current.querySelector('.bscroll-vertical-scrollbar').style.opacity = toggle ? 1 : 0;
+    if (isTransition) {
+      scrollContainerRef.current.querySelector('.bscroll-vertical-scrollbar').style.transitionDuration = '500ms';
+    }
+  }
+}
+
+function handlePostsMouseEnter(scrollContainerRef) {
+  toggleScrollBar(scrollContainerRef, true)
+}
+
+function handlePostsMouseLeave(scrollContainerRef) {
+  toggleScrollBar(scrollContainerRef, false)
+}
+
 const posts = ({ category, posts }) => {
   const scrollContainerRef = React.createRef();
   let scroll = null;
@@ -27,7 +44,7 @@ const posts = ({ category, posts }) => {
   })
 
   return (
-    <div className='article-list' ref={scrollContainerRef} >
+    <div className='article-list' ref={scrollContainerRef} onMouseEnter={() => handlePostsMouseEnter(scrollContainerRef)} onMouseLeave={() => handlePostsMouseLeave(scrollContainerRef)}>
       {
         <ul className='list-wrapper'>
           {

@@ -81,12 +81,12 @@ const postContent = ({ post }) => {
       scroll = new BScroll(scrollContainerRef.current, {
         mouseWheel: true,
         scrollbar: {
-          fade: true,
-          // interactive: true
+          fade: false,
+          interactive: true
         },
-        // bounce: false,
-        // bindToWrapper: true,
-        // preventDefault: false
+        bounce: false,
+        bindToWrapper: true,
+        preventDefault: false
       })
     }
 

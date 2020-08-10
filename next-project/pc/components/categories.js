@@ -2,6 +2,23 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import BScroll from 'better-scroll'
 
+function toggleScrollBar(scrollContainerRef, toggle, isTransition=true) {
+  if (scrollContainerRef.current) {
+    scrollContainerRef.current.querySelector('.bscroll-vertical-scrollbar').style.opacity = toggle ? 1 : 0;
+    if (isTransition) {
+      scrollContainerRef.current.querySelector('.bscroll-vertical-scrollbar').style.transitionDuration = '500ms';
+    }
+  }
+}
+
+function handleCategoriesMouseEnter(scrollContainerRef) {
+  toggleScrollBar(scrollContainerRef, true)
+}
+
+function handleCategoriesMouseLeave(scrollContainerRef) {
+  toggleScrollBar(scrollContainerRef, false)
+}
+
 const categories = ({ categories, post }) => {
   const scrollContainerRef = React.createRef()
   const scroll = null
@@ -26,7 +43,7 @@ const categories = ({ categories, post }) => {
   })
 
   return (
-    <div className='category' ref={scrollContainerRef} >
+    <div className='category' ref={scrollContainerRef} onMouseEnter={() => handleCategoriesMouseEnter(scrollContainerRef)} onMouseLeave={() => handleCategoriesMouseLeave(scrollContainerRef)}>
       {
         categories ? (
           <ul className='list-wrapper'>
