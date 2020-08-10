@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "rblogx",
   "scripts": {
-    "dev-pc": "next ./next-project/pc",
+    "dev-pc": "next ./next-project/pc -p 3000",
     "build-pc": "next build ./next-project/pc",
-    "start-pc": "next start ./next-project/pc",
-    "dev-mobile": "next ./next-project/mobile",
+    "start-pc": "next start ./next-project/pc -p 3000",
+    "dev-mobile": "next ./next-project/mobile -p 3001",
     "build-mobile": "next build ./next-project/mobile",
-    "start-mobile": "next start ./next-project/mobile"
+    "start-mobile": "next start ./next-project/mobile -p 3001"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/rbackrock/rblogx#readme",
   "dependencies": {
-    "@better-scroll/core": "^2.0.0-beta.10",
+    "better-scroll": "^1.15.2",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.19",
     "next": "^9.5.1",
@@ -40,7 +40,7 @@
     "react-icons": "^3.10.0",
     "react-katex": "^2.0.2",
     "react-markdown": "^4.3.1",
-    "react-syntax-highlighter": "^13.2.1",
+    "react-syntax-highlighter": "^10.1.2",
     "remark-math": "^2.0.1",
     "styled-jsx-plugin-postcss": "^2.0.1"
   }
