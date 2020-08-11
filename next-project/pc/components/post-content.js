@@ -105,8 +105,6 @@ const postContent = ({ post }) => {
     }
   })
 
-  console.log(router.pathname.indexOf('detail'))
-
   return (
     <div className={`article`}>
       <span style={{ display: !pathExistDetail ? 'block' : 'none' }}>

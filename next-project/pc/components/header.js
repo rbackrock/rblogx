@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import DynamicUnderline from './dynamic-underline';
+import Link from 'next/link'
+import DynamicUnderline from './dynamic-underline'
 
 const header = () => {
   return (
