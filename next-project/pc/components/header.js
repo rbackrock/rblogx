@@ -26,6 +26,7 @@ const header = () => {
           background: linear-gradient(#716661,#5f5450);
           border-bottom: 1px #534843 solid;
           border-right: 1px #564944 solid;
+          z-index: 999999;
         }
   
         .left, .right {

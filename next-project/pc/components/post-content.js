@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import BScroll from 'better-scroll'
 import { MdCompareArrows } from "react-icons/md"
@@ -73,6 +75,8 @@ function handleArticleMouseLeave(scrollContainerRef) {
 }
 
 const postContent = ({ post }) => {
+  const router = useRouter()
+  const pathExistDetail = router.pathname.indexOf('detail') !== -1
   let scrollContainerRef = React.createRef()
   let scroll = null
 
@@ -101,9 +105,17 @@ const postContent = ({ post }) => {
     }
   })
 
+  console.log(router.pathname.indexOf('detail'))
+
   return (
     <div className={`article`}>
-      <span className='wrapper-expand'><MdCompareArrows /></span>
+      <span style={{ display: !pathExistDetail ? 'block' : 'none' }}>
+        <Link key={post.title} as={`/detail/${post.title}`} href="/detail/[post]">
+          <span  className='wrapper-expand'><MdCompareArrows /></span>
+        </Link>
+      </span>
+      <span onClick={() => router.back()} style={{ display: pathExistDetail ? 'block' : 'none' }} className='wrapper-expand'><MdCompareArrows /></span>
+
       <div className={`wrapper`} ref={scrollContainerRef} onMouseEnter={() => handleArticleMouseEnter(scrollContainerRef)} onMouseLeave={() => handleArticleMouseLeave(scrollContainerRef)}>
         {
           <div className="container" >
