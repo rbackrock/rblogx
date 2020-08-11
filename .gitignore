@@ -110,3 +110,4 @@ package-lock.json
 .history
 out
 .DS_Store
+_posts/
