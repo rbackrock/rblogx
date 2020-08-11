@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import BScroll from 'better-scroll'
 import moment from 'moment';
@@ -20,7 +21,21 @@ function handlePostsMouseLeave(scrollContainerRef) {
   toggleScrollBar(scrollContainerRef, false)
 }
 
+function onCategoryItemStyle(post, router, index) {
+  const onItemClassName = 'on-item'
+  if (router.query.post === post) {
+    return onItemClassName
+  } else {
+    if (router.route === '/' && index === 0) {
+      return onItemClassName
+    }
+  }
+
+  return ''
+}
+
 const posts = ({ category, posts }) => {
+  const router = useRouter()
   const scrollContainerRef = React.createRef();
   let scroll = null;
 
@@ -50,7 +65,7 @@ const posts = ({ category, posts }) => {
           {
             posts ? ((
               posts.map((post, index) => (
-                <li className={`item`} key={index}>
+                <li className={`item ${ onCategoryItemStyle(post.title, router, index) }`} key={index}>
                   {
                     <Link key={post.title} as={`/${category}/${post.title}`} href="/[category]/[post]">
                       <div className="article-info" >
