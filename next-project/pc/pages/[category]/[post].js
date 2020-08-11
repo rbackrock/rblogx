@@ -1,18 +1,18 @@
 import { getAllCategories, getPostsByCategory, getPostContentByTitle } from '../../../../lib/api'
-import Layout from '../../components/layout'
-import PostsLayout from '../../components/posts-layout'
+import MainLayout from '../../components/layout/main-layout'
+import PostsLayout from '../../components/layout/posts-layout'
 
 const viewPost = ({ allCategories, category, allPosts, post }) => {
   return (
     <>
-      <Layout>  
+      <MainLayout>  
         <PostsLayout
           categories={ allCategories }
           category={ category }
           posts={ allPosts }
           post={ post }
         ></PostsLayout>
-      </Layout>
+      </MainLayout>
     </>
   )
 }

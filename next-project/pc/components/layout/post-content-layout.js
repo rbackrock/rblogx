@@ -1,4 +1,4 @@
-import PostContent from './post-content'
+import PostContent from '../post-content'
 
 const postContentLayout = ({ post }) => {
   return (

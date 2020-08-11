@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from '../header';
 
 const layout = ({ children }) => {
   return (

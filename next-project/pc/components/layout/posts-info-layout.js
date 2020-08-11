@@ -1,5 +1,5 @@
-import Category from './categories'
-import Posts from './posts'
+import Category from '../categories'
+import Posts from '../posts'
 
 const postsInfoLayout = ({ categories, category, posts, post }) => {
   return (

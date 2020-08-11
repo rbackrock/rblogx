@@ -1,17 +1,17 @@
-import Layout from '../components/layout'
-import PostsLayout from '../components/posts-layout'
+import MainLayout from '../components/layout/main-layout'
+import PostsLayout from '../components/layout/posts-layout'
 import { getAllPosts, getAllCategories, getPostContentForIndex } from '../../../lib/api'
 
 const Index = ({ allCategories, allPostsData, post }) => (
   <>
-    <Layout>  
+    <MainLayout>  
       <PostsLayout
         categories={ allCategories }
         category={ allCategories && allCategories.length > 0 ? allCategories[0] : null }
         posts={ allPostsData }
         post={ post }
       ></PostsLayout>
-    </Layout>
+    </MainLayout>
   </>
 )
 

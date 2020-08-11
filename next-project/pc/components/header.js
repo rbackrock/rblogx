@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import DynamicUnderline from './DynamicUnderline';
+import DynamicUnderline from './dynamic-underline';
 
 const header = () => {
   return (
     <header>
       <div className="left">
         <Link href={'/'}>
-          <h1 className='name'><a href="" className='link'>Hello World<DynamicUnderline /></a></h1>
+          <h1 className='name'><a href="/" className='link'>{`rback:`}<DynamicUnderline /></a></h1>
         </Link>
       </div>
       <div className="right">
