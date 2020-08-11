@@ -6,7 +6,7 @@ const header = () => {
     <header>
       <div className="left">
         <Link href={'/'}>
-          <h1 className='name'><a href="/" className='link'>{`rback:`}<DynamicUnderline /></a></h1>
+          <h1 className='name'><a href="/" className='link'>{`[rback@blog ~] # `}<DynamicUnderline /></a></h1>
         </Link>
       </div>
       <div className="right">

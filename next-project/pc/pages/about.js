@@ -1,16 +1,16 @@
 import MainLayout from '../components/layout/main-layout'
-import AboutContainer from '../components/about-container'
+import PaperContainer from '../components/paper-container'
 
 const about = () => {
   return (
     <MainLayout>
       <div className="container">
-        <AboutContainer>
+        <PaperContainer>
           <p>大家好，我是回滚滚</p><br/>
           <p>喜欢计算机，愿望之一是可以撸代码撸到老</p><br/>
           <p>如果你喜欢本博客，欢迎使用和 Fork 项目，源代码<a className='link' target="_black" href="https://github.com/rbackrock/rblog">点这里</a></p><br/>
           <p>感谢你的访问</p><br/>
-        </AboutContainer>
+        </PaperContainer>
       </div>
 
       <style jsx>{`
