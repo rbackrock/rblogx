@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import BScroll from 'better-scroll'
 import { MdCompareArrows } from "react-icons/md"
 import { BlockMath, InlineMath } from 'react-katex'
-import RemarkMathPlugin from "remark-math"
+import RemarkMathPlugin from 'remark-math'
 
 import CodeBlock from './markdown/CodeBlock'
 import InlineCode from './markdown/InlineCode'
