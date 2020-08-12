@@ -7,8 +7,8 @@ import { MdCompareArrows } from "react-icons/md"
 import { BlockMath, InlineMath } from 'react-katex'
 import RemarkMathPlugin from 'remark-math'
 
-import CodeBlock from './markdown/CodeBlock'
-import InlineCode from './markdown/InlineCode'
+import CodeBlock from './markdown/code-block'
+import InlineCode from './markdown/inline-code'
 
 function toggleScrollBar(scrollContainerRef, toggle, isTransition=true) {
   if (scrollContainerRef && scrollContainerRef.current) {
