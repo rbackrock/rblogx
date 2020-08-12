@@ -1,4 +1,4 @@
-# :monkey_face: rblog
+# :monkey_face: rblogx
 
 这是点子有点烂大街的项目。它基于 [Next.js](https://nextjs.org/) 实现，整体样式完全参照于锤子便签
 
