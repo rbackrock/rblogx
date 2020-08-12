@@ -19,7 +19,7 @@ export async function getStaticProps() {
     props: {
       allCategories,
       allPostsByCategory,
-      category: allCategories[0]
+      category: allCategories && allCategories.length > 0? allCategories[0] : null
     }
   }
 }
