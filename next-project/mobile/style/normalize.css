@@ -92,7 +92,7 @@ body {
 /** --- **/
 body, html {
   color: rgb(102, 102, 102);
-  font-family: Helvetica,"Microsoft Yahei",ST-Heiti,"Apple Color Emoji";
+  font-family: "PingFang SC",Helvetica,"Microsoft Yahei",ST-Heiti,"Apple Color Emoji","Source Sans Pro", sans-serif;
   font-size: 5vw;
 }
 
@@ -107,7 +107,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 
 body {
   line-height: 1;
-  background: #F0DAB3 url(http://images.rback.fun/images/note_bg.jpg);
+  background: #F0DAB3 url(/img/note_bg.jpg);
   background-repeat: repeat;
   color: #645647;
   font-size: 3.6vw;
