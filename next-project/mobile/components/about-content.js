@@ -23,7 +23,7 @@ const aboutContent = () => {
       <div className="content">
         <p>大家好，我是回滚滚</p><br/>
         <p>喜欢计算机，愿望之一是可以撸代码撸到老</p><br/>
-        <p>如果你喜欢本博客，欢迎使用和 Fork 项目，源代码<a className='link' target="_black" href="https://github.com/rbackrock/rblog">点这里</a></p><br/>
+        <p>如果你喜欢本博客，欢迎使用和 Fork 项目，源代码<a className='link' target="_black" href="https://github.com/rbackrock/rblogx">点这里</a></p><br/>
         <p>感谢你的访问</p><br/>
         <p style={{ textAlign: 'center', color: 'rgb(222, 216, 197)', fontSize: '3.9vw' }}>博客样式完全参照于锤子便签</p>
       </div>
