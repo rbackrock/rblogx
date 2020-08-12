@@ -105,11 +105,11 @@ console.log('Hello world');
 下面举例桌面端的命令，移动端类似，只要把下面命令的 `-pc` 修改为 `-mobile` 即可
 
 ```
-npm run dev-pc # 开发调试桌面端
-npm run build-pc # 构建生成桌面端的 .next 文件夹
-npm run start-pc # 部署桌面端
-npm run service-pc # 构建完桌面端以后执行 next start 命令部署开发环境
-npm run deploy-pc # 使用 pm2 以守护进程的方式启动 `next start`
+npm run dev-pc      # 开发调试桌面端
+npm run build-pc    # 构建生成桌面端的 .next 文件夹
+npm run start-pc    # 部署桌面端
+npm run service-pc  # 构建完桌面端以后执行 next start 命令部署开发环境
+npm run deploy-pc   # 使用 pm2 以守护进程的方式启动 `next start`
 ```
 
 ## 注意事项
