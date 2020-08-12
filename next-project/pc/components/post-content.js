@@ -11,10 +11,16 @@ import CodeBlock from './markdown/CodeBlock'
 import InlineCode from './markdown/InlineCode'
 
 function toggleScrollBar(scrollContainerRef, toggle, isTransition=true) {
-  if (scrollContainerRef.current) {
-    scrollContainerRef.current.querySelector('.bscroll-vertical-scrollbar').style.opacity = toggle ? 1 : 0;
-    if (isTransition) {
-      scrollContainerRef.current.querySelector('.bscroll-vertical-scrollbar').style.transitionDuration = '500ms';
+  if (scrollContainerRef && scrollContainerRef.current) {
+    const scrollContainerElement = scrollContainerRef.current
+    const scrollVerticalScrollbarElement = scrollContainerElement.querySelector('.bscroll-vertical-scrollbar')
+    
+    if (scrollVerticalScrollbarElement) {
+      scrollVerticalScrollbarElement.style.opacity = toggle ? 1 : 0;
+      
+      if (isTransition) {
+        scrollVerticalScrollbarElement.style.transitionDuration = '500ms';
+      }
     }
   }
 }
@@ -107,12 +113,18 @@ const postContent = ({ post }) => {
 
   return (
     <div className={`article`}>
-      <span style={{ display: !pathExistDetail ? 'block' : 'none' }}>
-        <Link key={post.title} as={`/detail/${post.title}`} href="/detail/[post]">
-          <span  className='wrapper-expand'><MdCompareArrows /></span>
-        </Link>
-      </span>
-      <span onClick={() => router.back()} style={{ display: pathExistDetail ? 'block' : 'none' }} className='wrapper-expand'><MdCompareArrows /></span>
+      {
+        post ? (
+          <>
+            <span style={{ display: !pathExistDetail ? 'block' : 'none' }}>
+              <Link key={post.title} as={`/detail/${post.title}`} href="/detail/[post]">
+                <span  className='wrapper-expand'><MdCompareArrows /></span>
+              </Link>
+            </span>
+            <span onClick={() => router.back()} style={{ display: pathExistDetail ? 'block' : 'none' }} className='wrapper-expand'><MdCompareArrows /></span>
+          </>
+        ) : null
+      }
 
       <div className={`wrapper`} ref={scrollContainerRef} onMouseEnter={() => handleArticleMouseEnter(scrollContainerRef)} onMouseLeave={() => handleArticleMouseLeave(scrollContainerRef)}>
         {
