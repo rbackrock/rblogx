@@ -8,7 +8,11 @@
     "start-pc": "next start ./next-project/pc -p 3000",
     "dev-mobile": "next ./next-project/mobile -p 3001",
     "build-mobile": "next build ./next-project/mobile",
-    "start-mobile": "next start ./next-project/mobile -p 3001"
+    "start-mobile": "next start ./next-project/mobile -p 3001",
+    "service-pc": "npm run build-pc && npm run start-pc",
+    "service-mobile": "npm run build-mobile && npm run start-mobile",
+    "deploy-pc": "pm2 start --name pc npm -- run start-pc",
+    "deploy-mobile": "pm2 start --name mobile npm -- run start-mobile"
   },
   "repository": {
     "type": "git",
