@@ -45,7 +45,7 @@ const postsContent = ({ posts }) => {
         {
           posts && posts.map((post, index) => {
             return (
-              <Link key={index} as={`/p/${post.title}`} href="/p/[post]" >
+              <Link key={index} as={`/p/${post.name}`} href="/p/[post]" >
                 <li className='article-item'>
                   <div className="wrapper">
                     <div className="item">

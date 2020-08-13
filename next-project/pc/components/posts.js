@@ -21,21 +21,7 @@ function handlePostsMouseLeave(scrollContainerRef) {
   toggleScrollBar(scrollContainerRef, false)
 }
 
-function onCategoryItemStyle(post, router, index) {
-  const onItemClassName = 'on-item'
-  if (router.query.post === post) {
-    return onItemClassName
-  } else {
-    if (router.route === '/' && index === 0) {
-      return onItemClassName
-    }
-  }
-
-  return ''
-}
-
 const posts = ({ category, posts }) => {
-  const router = useRouter()
   const scrollContainerRef = React.createRef();
   let scroll = null;
 
@@ -65,9 +51,9 @@ const posts = ({ category, posts }) => {
           {
             posts ? ((
               posts.map((post, index) => (
-                <li className={`item ${ onCategoryItemStyle(post.title, router, index) }`} key={index}>
+                <li className={`item`} key={index}>
                   {
-                    <Link key={post.title} as={`/${category}/${post.title}`} href="/[category]/[post]">
+                    <Link key={post.title} as={`/p/${post.name}?category=${category}`} href="/p/[post]">
                       <div className="article-info" >
                         <div className="date">{moment(post.date).format('YYYY年MM月DD日')}</div>
                         <div className="title">{post.title}</div>

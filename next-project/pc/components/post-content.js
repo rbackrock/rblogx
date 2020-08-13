@@ -117,7 +117,7 @@ const postContent = ({ post }) => {
         post ? (
           <>
             <span style={{ display: !pathExistDetail ? 'block' : 'none' }}>
-              <Link key={post.title} as={`/detail/${post.title}`} href="/detail/[post]">
+              <Link key={post.title} as={`/detail/${post.name}`} href="/detail/[post]">
                 <span  className='wrapper-expand'><MdCompareArrows /></span>
               </Link>
             </span>

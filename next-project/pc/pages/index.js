@@ -1,14 +1,14 @@
 import MainLayout from '../components/layout/main-layout'
 import PostsLayout from '../components/layout/posts-layout'
-import { getAllPosts, getAllCategories, getPostContentForIndex } from '../../../lib/api'
+import { getPostsByCategory, getAllCategories, getPostContentByName } from '../../../lib/api'
 
-const Index = ({ allCategories, allPostsData, post }) => (
+const Index = ({ allCategories, category, allPosts, post }) => (
   <>
     <MainLayout>  
       <PostsLayout
         categories={ allCategories }
-        category={ allCategories && allCategories.length > 0 ? allCategories[0] : null }
-        posts={ allPostsData }
+        category={ category }
+        posts={ allPosts }
         post={ post }
       ></PostsLayout>
     </MainLayout>
@@ -17,16 +17,15 @@ const Index = ({ allCategories, allPostsData, post }) => (
 
 export async function getStaticProps() {
   const allCategories = getAllCategories()
-  const allPostsData = getAllPosts([
-    'title',
-    'date',
-  ])
-  const post = getPostContentForIndex()
+  const category = allCategories && allCategories.length > 0 ? allCategories[0] : null
+  const allPosts = category ? getPostsByCategory(category) : null
+  const post = allPosts && allPosts.length > 0 ? getPostContentByName(allPosts[0].name) : null
 
   return {
     props: {
       allCategories,
-      allPostsData,
+      category,
+      allPosts,
       post
     }
   }

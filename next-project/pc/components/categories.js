@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import BScroll from 'better-scroll'
-import { ALL_CATEGORY } from '../../../lib/constants'
 
 function toggleScrollBar(scrollContainerRef, toggle, isTransition=true) {
   if (scrollContainerRef.current) {
@@ -21,12 +20,20 @@ function handleCategoriesMouseLeave(scrollContainerRef) {
   toggleScrollBar(scrollContainerRef, false)
 }
 
-function onCategoryItemStyle(category, router) {
+function onCategoryItemStyle(router, category, index) {
   const onItemClassName = 'on-item'
-  if (router.query.category === category) {
-    return onItemClassName
+  const urlSearchByCategory = router.asPath.indexOf('=') !== -1 ? router.asPath.substr(router.asPath.indexOf('=') + 1) : ''
+
+  if (urlSearchByCategory) {
+    if (urlSearchByCategory === category) {
+      return onItemClassName
+    }
   } else {
-    if (router.route === '/' && category === ALL_CATEGORY) {
+    if (!router.query.category && index === 0) {
+      return onItemClassName
+    }
+  
+    if (router.query.category && router.query.category === category) {
       return onItemClassName
     }
   }
@@ -34,7 +41,7 @@ function onCategoryItemStyle(category, router) {
   return ''
 }
 
-const categories = ({ categories, post }) => {
+const categories = ({ categories, category, post }) => {
   const router = useRouter()
   const scrollContainerRef = React.createRef()
   let scroll = null
@@ -64,12 +71,12 @@ const categories = ({ categories, post }) => {
         categories ? (
           <ul className='list-wrapper'>
             {
-              categories.map((category, index) => (
-                <li className={`item ${ onCategoryItemStyle(category, router) }`} key={index}>
-                  <Link as={`/${category}/${post.title}`} href="/[category]/[post]" >
+              categories.map((currentCategory, index) => (
+                <li className={`item ${onCategoryItemStyle(router, currentCategory, index)}`} key={index}>
+                  <Link as={`/category/${currentCategory}`} href="/category/[category]" >
                     <div className='category-info'>
-                      <div className="name">{category}</div>
-                      {/* <div className="num">{category.category_num}</div> */}
+                      <div className="name">{currentCategory}</div>
+                      {/* <div className="num">{currentCategory.category_num}</div> */}
                     </div>
                   </Link>
                 </li>

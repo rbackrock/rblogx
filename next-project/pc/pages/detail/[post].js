@@ -1,4 +1,4 @@
-import { getPostContentByTitle, getAllPosts } from '../../../../lib/api'
+import { getPostContentByName, getAllPosts } from '../../../../lib/api'
 import MainLayout from '../../components/layout/main-layout'
 import PreviewPost from '../../components/preview-post'
 
@@ -15,7 +15,7 @@ const viewPost = ({ post }) => {
 export default viewPost
 
 export async function getStaticProps({ params }) {
-  const post = getPostContentByTitle(params.post)
+  const post = getPostContentByName(params.post)
 
   return {
     props: {
@@ -27,13 +27,13 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const paramsList = []
   const allPosts = getAllPosts([
-    'title'
+    'name'
   ])
 
   allPosts.map(post => {
     paramsList.push({
       params: {
-        post: post.title,
+        post: post.name,
       }
     })
   })
