@@ -5,10 +5,10 @@
   "scripts": {
     "dev-pc": "next ./next-project/pc -p 3000",
     "build-pc": "next build ./next-project/pc",
-    "start-pc": "next start ./next-project/pc -p 3000",
+    "start-pc": "npm run build-pc && next start ./next-project/pc -p 3000",
     "dev-mobile": "next ./next-project/mobile -p 3001",
     "build-mobile": "next build ./next-project/mobile",
-    "start-mobile": "next start ./next-project/mobile -p 3001",
+    "start-mobile": "npm run build-mobile && next start ./next-project/mobile -p 3001",
     "export-pc": "npm run build-pc && next export ./next-project/pc",
     "export-mobile": "npm run build-mobile && next export ./next-project/mobile",
     "deploy-next-pc": "pm2 start --name pc npm -- run start-pc",
