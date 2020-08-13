@@ -1,4 +1,4 @@
-import { getAllCategories, getPostContentByName, getAllPosts, getPostsByCategory } from '../../../../lib/api'
+import { getAllCategories, getPostContentByName, getPostsByCategory } from '../../../../lib/api'
 import MainLayout from '../../components/layout/main-layout'
 import PostsLayout from '../../components/layout/posts-layout'
 
@@ -20,10 +20,10 @@ const viewPost = ({ allCategories, category, allPosts, post }) => {
 export default viewPost
 
 export async function getStaticProps({ params }) {
-  const post = getPostContentByName(params.post)
+  const post = getPostContentByName(params.slug[1])
   const allCategories = getAllCategories()
-  const category = post.category
-  const allPosts = getPostsByCategory(post.category)
+  const category = params.slug[0]
+  const allPosts = getPostsByCategory(params.slug[0])
 
   return {
     props: {
@@ -37,15 +37,16 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const paramsList = []
-  const allPosts = getAllPosts([
-    'name',
-  ])
+  const allCategories = getAllCategories()
 
-  allPosts.map(post => {
-    paramsList.push({
-      params: {
-        post: post.name
-      }
+  allCategories.map(category => {
+    const allPosts = getPostsByCategory(category)
+    allPosts.map(post => {
+      paramsList.push({
+        params: {
+          slug: [category, post.name]
+        }
+      })
     })
   })
 

@@ -24,10 +24,10 @@ function handlePostsMouseLeave(scrollContainerRef) {
 
 function onCategoryItemStyle(router, post, index) {
   const onItemClassName = 'on-item'
-  const urlSearchByPostName = router.query.post
+  const routerQuery = router.query
 
-  if (urlSearchByPostName) {
-    if (urlSearchByPostName === post.name) {
+  if (routerQuery.hasOwnProperty('slug') && routerQuery.slug.length === 2) {
+    if (routerQuery.slug[1] === post.name) {
       return onItemClassName
     }
   } else {
@@ -72,7 +72,7 @@ const posts = ({ category, posts }) => {
               posts.map((post, index) => (
                 <li className={`item ${onCategoryItemStyle(router, post, index)}`} key={index}>
                   {
-                    <Link key={post.title} as={`/p/${post.name}?category=${category}`} href="/p/[post]">
+                    <Link key={post.title} as={`/view/${category}/${post.name}`} href="/view/[...slug]">
                       <div className="article-info" >
                         <div className="date">{moment(post.date).format('YYYY年MM月DD日')}</div>
                         <div className="title">{post.title}</div>

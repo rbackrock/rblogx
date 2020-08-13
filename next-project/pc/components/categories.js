@@ -22,18 +22,20 @@ function handleCategoriesMouseLeave(scrollContainerRef) {
 
 function onCategoryItemStyle(router, category, index) {
   const onItemClassName = 'on-item'
-  const urlSearchByCategory = router.asPath.indexOf('=') !== -1 ? router.asPath.substr(router.asPath.indexOf('=') + 1) : ''
+  const routerQuery = router.query
 
-  if (urlSearchByCategory) {
-    if (decodeURI(urlSearchByCategory) === category) {
-      return onItemClassName
+  if (Object.keys(routerQuery).length > 0) {
+    if (routerQuery.hasOwnProperty('category')) {
+      if (decodeURI(routerQuery.category) === category) {
+        return onItemClassName
+      }
+    } else if (routerQuery.hasOwnProperty('slug') && routerQuery.slug.length === 2) {
+      if (routerQuery.slug[0] === category) {
+        return onItemClassName
+      }
     }
   } else {
-    if (!router.query.category && index === 0) {
-      return onItemClassName
-    }
-  
-    if (router.query.category && router.query.category === category) {
+    if (index === 0) {
       return onItemClassName
     }
   }
