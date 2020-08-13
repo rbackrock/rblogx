@@ -25,7 +25,7 @@ function onCategoryItemStyle(router, category, index) {
   const urlSearchByCategory = router.asPath.indexOf('=') !== -1 ? router.asPath.substr(router.asPath.indexOf('=') + 1) : ''
 
   if (urlSearchByCategory) {
-    if (urlSearchByCategory === category) {
+    if (decodeURI(urlSearchByCategory) === category) {
       return onItemClassName
     }
   } else {
