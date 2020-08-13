@@ -14,8 +14,8 @@
     "build": "npm run build-pc && npm run build-mobile",
     "deploy-pc": "pm2 start --name pc npm -- run start-pc",
     "deploy-mobile": "pm2 start --name mobile npm -- run start-mobile",
-    "deploy-pc-serve": "pm2 start --name pc serve -- ./next-project/pc/out",
-    "deploy-mobile-serve": "pm2 start --name mobile serve -- ./next-project/mobile/out"
+    "deploy-pc-serve": "pm2 start --name pc serve -- ./next-project/pc/out -l 3000",
+    "deploy-mobile-serve": "pm2 start --name mobile serve -- ./next-project/mobile/out -l 3001"
   },
   "repository": {
     "type": "git",
