@@ -416,8 +416,8 @@ const postContent = ({ post }) => {
 
         .md-content :global(code.inline) {
           display: inline-block;
-          background-color: #b4a08e;
-          color: #fff;
+          background-color: rgba(180, 160, 142, 0.13);
+          color: #645647;
           margin: 0 0.2em;
           border-radius: 4px;
           padding: 0em 0.4em;
