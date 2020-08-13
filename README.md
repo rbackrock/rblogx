@@ -149,11 +149,11 @@ i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|v
 
   location / {
     if ($mobile = no) {
-      proxy_pass http://localhost:3000;
+      root /var/www/blog/pc;
     }
 
     if ($mobile = yes) {
-      proxy_pass http://localhost:3001;
+      root /var/www/blog/mobile;
     }
   }
 }
