@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import BScroll from 'better-scroll'
 import moment from 'moment';
+import { route } from 'next/dist/next-server/server/router';
 
 function toggleScrollBar(scrollContainerRef, toggle, isTransition=true) {
   if (scrollContainerRef.current) {
@@ -21,7 +22,25 @@ function handlePostsMouseLeave(scrollContainerRef) {
   toggleScrollBar(scrollContainerRef, false)
 }
 
+function onCategoryItemStyle(router, post, index) {
+  const onItemClassName = 'on-item'
+  const urlSearchByPostName = router.query.post
+
+  if (urlSearchByPostName) {
+    if (urlSearchByPostName === post.name) {
+      return onItemClassName
+    }
+  } else {
+    if (index === 0) {
+      return onItemClassName
+    }
+  }
+
+  return ''
+}
+
 const posts = ({ category, posts }) => {
+  const router = useRouter()
   const scrollContainerRef = React.createRef();
   let scroll = null;
 
@@ -51,7 +70,7 @@ const posts = ({ category, posts }) => {
           {
             posts ? ((
               posts.map((post, index) => (
-                <li className={`item`} key={index}>
+                <li className={`item ${onCategoryItemStyle(router, post, index)}`} key={index}>
                   {
                     <Link key={post.title} as={`/p/${post.name}?category=${category}`} href="/p/[post]">
                       <div className="article-info" >
