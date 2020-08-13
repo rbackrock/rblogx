@@ -9,8 +9,7 @@
     "dev-mobile": "next ./next-project/mobile -p 3001",
     "build-mobile": "next build ./next-project/mobile",
     "start-mobile": "next start ./next-project/mobile -p 3001",
-    "service-pc": "npm run build-pc && npm run start-pc",
-    "service-mobile": "npm run build-mobile && npm run start-mobile",
+    "build": "npm run build-pc && npm run build-mobile",
     "deploy-pc": "pm2 start --name pc npm -- run start-pc",
     "deploy-mobile": "pm2 start --name mobile npm -- run start-mobile"
   },
