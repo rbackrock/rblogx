@@ -1,4 +1,4 @@
-export default ({ inline, children }) => {
+const inlineCode = ({ inline, children }) => {
   let render = null;
   if (inline) {
     render = <code className='inline'>{children}</code>
@@ -8,3 +8,5 @@ export default ({ inline, children }) => {
 
   return render
 }
+
+export default inlineCode
