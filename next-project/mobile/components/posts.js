@@ -6,7 +6,7 @@ const posts = ({ categories, category, posts }) => {
   return (
     <MainLayout>
       <PostsHeader categories={ categories } currentCategory={ category }></PostsHeader>
-      <PostsList posts={ posts } ></PostsList>
+      <PostsList posts={ posts } category={ category }></PostsList>
     </MainLayout>
   )
 }

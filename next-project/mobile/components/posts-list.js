@@ -14,7 +14,7 @@ function showArticleListStyle(scrollContainerRef) {
   })
 }
 
-const postsContent = ({ posts }) => {
+const postsContent = ({ posts, category}) => {
   const scrollContainerRef = React.createRef()
   let scroll = null
 
@@ -45,7 +45,7 @@ const postsContent = ({ posts }) => {
         {
           posts && posts.map((post, index) => {
             return (
-              <Link key={index} as={`/p/${post.name}`} href="/p/[post]" >
+              <Link key={index} as={`/p/${category}/${post.name}`} href="/p/[...slug]" >
                 <li className='article-item'>
                   <div className="wrapper">
                     <div className="item">

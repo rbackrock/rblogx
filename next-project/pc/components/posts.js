@@ -72,7 +72,7 @@ const posts = ({ category, posts }) => {
               posts.map((post, index) => (
                 <li className={`item ${onCategoryItemStyle(router, post, index)}`} key={index}>
                   {
-                    <Link key={post.title} as={`/view/${category}/${post.name}`} href="/view/[...slug]">
+                    <Link key={post.title} as={`/p/${category}/${post.name}`} href="/p/[...slug]">
                       <div className="article-info" >
                         <div className="date">{moment(post.date).format('YYYY年MM月DD日')}</div>
                         <div className="title">{post.title}</div>

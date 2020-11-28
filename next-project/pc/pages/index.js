@@ -16,10 +16,10 @@ const Index = ({ allCategories, category, allPosts, post }) => (
 )
 
 export async function getStaticProps() {
-  const allCategories = getAllCategories()
+  const allCategories = await getAllCategories()
   const category = allCategories && allCategories.length > 0 ? allCategories[0] : null
-  const allPosts = category ? getPostsByCategory(category) : null
-  const post = allPosts && allPosts.length > 0 ? getPostContentByName(allPosts[0].name) : null
+  const allPosts = category ? await getPostsByCategory(category) : null
+  const post = allPosts && allPosts.length > 0 ? await getPostContentByName(allPosts[0].name) : null
 
   return {
     props: {
